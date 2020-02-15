@@ -1,29 +1,33 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
-  </div>
+  <img src="./assets/logo.png" alt="logo">
+  <h1>Hello Vue 3 x TypeScript!</h1>
+  <button @click="inc">Clicked {{ count }} times.</button>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import { defineComponent, ref } from "vue";
 
 export default defineComponent({
-  name: 'App',
-  components: {
-    HelloWorld
+  setup() {
+    const count = ref(0)
+    const inc = () => {
+      count.value++
+    }
+
+    return {
+      count,
+      inc
+    }
   }
-});
+})
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+img {
+  width: 200px;
+}
+
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
 }
 </style>
