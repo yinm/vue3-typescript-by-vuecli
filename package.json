@@ -4,12 +4,14 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "postinstall": "FILE=./node_modules/vue-template-compiler/index.js; sed \"s/var vueVersion = .*/var vueVersion = undefined/\" $FILE > $FILE.tmp && mv $FILE.tmp $FILE"
   },
   "dependencies": {
     "vue": "^3.0.0-alpha.4"
   },
   "devDependencies": {
+    "@types/estree": "0.0.42",
     "@vue/cli-plugin-typescript": "~4.2.0",
     "@vue/cli-service": "~4.2.0",
     "@vue/compiler-sfc": "^3.0.0-alpha.4",
